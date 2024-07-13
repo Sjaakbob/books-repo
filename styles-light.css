@@ -1,0 +1,148 @@
+#disclaimer {
+    display: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 88.15%;
+    background-color: #ffffff;
+    padding: 10px; /* Add padding for spacing */
+    box-shadow: 0px 2px 5px rgba(10, 160, 95, 0.1); /* Add a subtle shadow for separation */
+    border-radius: 0 0 10px 10px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    background-color: #570a9c;
+}
+.search-input{
+    font-size: larger;
+    height: 50px;
+    border-radius: 10px 10px 10px 10px;
+}
+.container {
+    width: 90%; /* Adjust max-width as needed */
+    margin: 100px auto 20px; /* Adjust margin for spacing */
+    background-color: #ffffff;
+
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow to container */
+}
+#statsButton{
+    border: none; /* Remove default button border */
+    background-color: transparent; /* Make background transparent */
+    cursor: pointer; /* Show pointer cursor on hover */
+    width: 63px;
+    vertical-align: middle; /* Align image vertically */
+}
+#statsButton:hover{
+    opacity: 0.8; /* Optional: Add a hover effect */
+}
+#clearSearch{
+    border: none; /* Remove default button border */
+    background-color: transparent; /* Make background transparent */
+    cursor: pointer; /* Show pointer cursor on hover */
+    width: 70px;
+    vertical-align: middle; /* Align image vertically */
+}
+#clearSearch:hover{
+    opacity: 0.8; /* Optional: Add a hover effect */
+}
+#randomBookButton{
+    border: none; /* Remove default button border */
+    background-color: transparent; /* Make background transparent */
+    cursor: pointer; /* Show pointer cursor on hover */
+    width: 50px;
+    vertical-align: middle; /* Align image vertically */
+}
+#randomBookButton:hover{
+    opacity: 0.8; /* Optional: Add a hover effect */
+}
+#disclaimerButton {
+    border: none; /* Remove default button border */
+    background-color: transparent; /* Make background transparent */
+    cursor: pointer; /* Show pointer cursor on hover */
+    width: 50px;
+    height: auto;
+    vertical-align: middle; /* Align image vertically */
+}
+
+#disclaimerButton:hover {
+    opacity: 0.8; /* Optional: Add a hover effect */
+}
+.custom-checkbox {
+    cursor: pointer;
+}
+
+.custom-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.custom-checkbox img {
+    height: 55px; /* Adjust image size */
+    width: auto; /* Maintain aspect ratio */
+    vertical-align: middle; /* Align image vertically */
+}
+
+.custom-checkbox:hover{
+    opacity: 0.8; /* Optional: Add a hover effect */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+th {
+    background-color: #077276;
+    cursor: pointer; /* Add cursor pointer for sortable columns */
+}
+
+.mode-toggle {
+    text-align: center;
+}
+
+.dataTables_filter input {
+    color: #000000;
+}
+
+.dataTables_filter label {
+    color: #000000;
+}
+
+.dataTables_length label {
+    color: #000000;
+}
+
+.dataTables_length select {
+    color: #000000;
+}
+
+.dataTables_length select:focus {
+    background-color: #ffffff;
+}
+
+.dataTables_wrapper .dataTables_info {
+    color: #000000;
+}
+
+footer {
+    text-align: center;
+    color: #000000;
+}

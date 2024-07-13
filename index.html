@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+    <link rel="icon" href="/shu.ico" type="image/x-icon">
+    <link rel="preload" href="/moonsun.jpg" as="image">
+    
+
+    <!-- <link rel="icon" href="C:\Users\mikev\OneDrive\Desktop\cosas\code\Bookswebsite2\shu.ico"> -->
+    <link rel="stylesheet" href="styles-light.css" id="lightStylesheet">
+    <link rel="stylesheet" href="styles-dark.css" id="darkStylesheet" disabled>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.11/jquery.csv.min.js"></script>
+    <script src="script.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+           
+            <!--<label for="darkModeToggle">Dark Mode</label> -->
+            <label for="darkModeToggle" class="custom-checkbox">
+                <input type="checkbox" id="darkModeToggle" checked>
+                <img src="/moonsun.jpg" alt="Dark Mode Toggle">
+            </label>
+            
+            <input type="image" id="disclaimerButton" src="/questionmark.png" alt="Explanation" />
+            
+            <input type="text"  class="search-input" id="searchInput" placeholder="Search a wonderful book...">
+            <input type="image" id="clearSearch" src="/clear.png">
+            <input type="image" id="randomBookButton" src="/dice2.png" alt="Dice" />
+            <input type="image" id="statsButton" src="/stats.png" alt="Stats" />
+            
+            <!-- <nav>Top</nav> -->
+        </header>
+        <br> 
+    <table id="excelTable">
+        <div id="disclaimer"><br>I created this list of books that I have either read, or listened to, for three reasons. One, to motivate me to read more books (even if they
+            are very short). Two, to show whoever is interested my list of books so that we can discuss these titles. Three, so that people can recommened future books to me.<br><br>
+            
+            The recommended tab shows the books I would recommend to someone with similar interests to me. It also serves as a way to find similar books I might be interested in and recommend those to me. Please 
+            note that this is not a list of how well books sold or how critically acclaimed they are. This simple list is just my opinion. Some of these titles I have read a long time ago, such as Eragon. At the time
+            I really liked it and would surely recommend it. However, if I were to judge it by my standards of today, I would be far more likely to say "Maybe" or even "No". That said I still recommended it now
+            (especially to younger readers) because at one point in my life it gave me great joy. In most cases I chose to preserve my first impression. <br><br>
+       
+            Some of these books were truly difficult for me to rate on a scale of "Yes" or "No", which is why I have added the third option of "Mabye". That said I've tried to avoid this category as much as possible.
+            The rating of these books largely depend on how much I enjoyed the book or how much I learned from it but the length of the book was also a factor in the final score. Certain books that I would rate 
+            as a 7 out of 10, could fall in the category of "Yes" if for example they were a 1 hour read. If it took me something like 5 hours I might rate it a "Maybe", and if longer than 10 hours I might give that 
+            same book a rating of "No". This method is of course imprecise but it is better than nothing.<br><br>
+
+            The language category refers to the version of the book I have read, not the original language. In some cases (in particular Harry Potter) I have read the same book in multiple languages.<br><br>
+            
+            Some books are abridged versions (shorter versions). Initially I didn't like this idea but considering the fact that our time on this planet is rather limited and there are essentially endless good books
+            to read, I have decided to also include the abridged versions. In some cases, "We have always lived in the castle" comes to mind, I actually much prefer the abridged version and gave it a "Yes". 
+            The original version was a bit to drawn out for my taste and I would be more likely to score it a "Maybe". <br><br>
+
+            Certain books could be counted in a number of ways. Grim's Fairy Tales for example I counted as one book, even though It's more of a collection of shorter stories (or books if you will). The Christian bible
+            also comes to mind because it could technically be counted as one book (the way most people seem to see it), two books (the new and old testament), 73 books (that are part of the main canon) or even more
+            if you count all the other bible books that have been ommited through the ages. Either way I chose to list each book in the bible as one book because I really need some motivation to finish it. <br><br> 
+
+            Finally I want to stress that this list is not complete. I have read many more books that I have either forgotten about, or could not be bothered to add to the list (text books in particular). I have 
+            only relatively recently started to track my reading progress. I find that it is extra rewarding to write down the name of the book I just finished. If you made it this far, a big thanks for your interest
+            and please let me know which books of my list you agree or disagree with. And of course feel free to recommend me some more books :) <br><br>
+        </div>   
+        
+        
+        <div id="tableContainer"></div>
+        <thead>
+         
+            <tbody>
+                <!-- Table rows will be dynamically populated -->
+            </tbody>
+        </thead>
+    </table>
+</div>
+<footer>
+    <!-- Footer content goes here -->
+    <p>&copy; Mike's Books list</p>
+</footer>
+</body>
+</html>
+
