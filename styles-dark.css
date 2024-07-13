@@ -1,7 +1,16 @@
 #disclaimer {
     display: none;
 }
-
+@keyframes rainbowBackground {
+    0% { background-color: red; }
+    14% { background-color: orange; }
+    28% { background-color: yellow; }
+    42% { background-color: green; }
+    57% { background-color: blue; }
+    71% { background-color: indigo; }
+    85% { background-color: violet; }
+    100% { background-color: red; }
+  }
 header {
     position: fixed;
     top: 0;
@@ -18,7 +27,7 @@ body {
     color: #ffffff;
     margin: 0;
     padding: 0;
-    background-color: #570a9c;
+    animation: rainbowBackground 60s linear infinite;
 }
 .container {
     width: 90%; /* Adjust max-width as needed */
