@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Display total number of books using an alert
             alert(`Number of books read: ${totalBooks}
                 \nBooks in English: ${englishBooks}\nBooks in Dutch: ${dutchBooks}\nBooks in German: ${germanBooks}\nBooks in Chinese: ${chineseBooks}
-                \nAbsolutely!: ${absolutelyBooks}\nYes: ${absolutelyBooks}\nMaybe: ${absolutelyBooks}\nNo: ${absolutelyBooks}`);
+                \nAbsolutely!: ${YesBooks}\nYes: ${absolutelyBooks}\nMaybe: ${MaybeyBooks}\nNo: ${NoBooks}`);
         }
     
         // Attach click event listener to the button
