@@ -203,13 +203,13 @@ document.addEventListener("DOMContentLoaded", function () {
             const chineseBooks = booksData.filter(book => book.Language === 'Chinese').length;
 
             const absolutelyBooks = booksData.filter(book => book.Recommended === 'Absolutely!').length;
-            const YesBooks = booksData.filter(book => book.Recommended === 'Yes').length;
-            const MaybeyBooks = booksData.filter(book => book.Recommended === 'Maybe').length;
-            const NoBooks = booksData.filter(book => book.Recommended === 'No').length;
+            const yesBooks = booksData.filter(book => book.Recommended === 'Yes').length;
+            const maybeyBooks = booksData.filter(book => book.Recommended === 'Maybe').length;
+            const noBooks = booksData.filter(book => book.Recommended === 'No').length;
             // Display total number of books using an alert
             alert(`Number of books read: ${totalBooks}
                 \nBooks in English: ${englishBooks}\nBooks in Dutch: ${dutchBooks}\nBooks in German: ${germanBooks}\nBooks in Chinese: ${chineseBooks}
-                \nAbsolutely!: ${YesBooks}\nYes: ${absolutelyBooks}\nMaybe: ${MaybeyBooks}\nNo: ${NoBooks}`);
+                \nAbsolutely!: ${absolutelyBooks}\nYes: ${yesBooks}\nMaybe: ${maybyBooks}\nNo: ${noBooks}`);
         }
     
         // Attach click event listener to the button
