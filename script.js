@@ -30,19 +30,18 @@ document.addEventListener("DOMContentLoaded", function () {
         const randomSong = getRandomSong();
         audioPlayer.src = `${musicFolder}/${randomSong}`;
         audioPlayer.play();
-        playPauseButton.textContent = 'Pause';
+        musicButton.textContent = 'Pause';
     }
 
     musicButton.addEventListener('click', function () {
         if (audioPlayer.paused) {
             audioPlayer.play();
-            playPauseButton.textContent = 'Pause';
+            musicButton.textContent = 'Pause';
         } else {
             audioPlayer.pause();
-            playPauseButton.textContent = 'Play';
+            musicButton.textContent = 'Play';
         }
     });
-playRandomSong();
 
 
     // Function to toggle between light and dark stylesheets
