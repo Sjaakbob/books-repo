@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
      // Function to get a random song from the folder
      function getRandomSong() {
-        const songs = ['song1.mp3', 'song2.mp3', 'song3.mp3']; // List of song files
+        const songs = ['classical-musical-serenade-of-simplicity.mp3', 'ethereal-elegy.mp3', 'fur-elise-beethoven.mp3']; // List of song files
         const randomIndex = Math.floor(Math.random() * songs.length);
         return songs[randomIndex];
     }
