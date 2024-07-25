@@ -6,12 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const toggleButton = document.getElementById('disclaimerButton');
     const disclaimer = document.getElementById('disclaimer');
     const statsButton = document.getElementById('statsButton');
-    const clearSearchButton = document.getElementById('clearSearch');
+    //const clearSearchButton = document.getElementById('clearSearch');
     const rainbowButton = document.getElementById('rainbowButton');
-    const musicButton = document.getElementById('musicButton');
+    const toggleMusicButton = document.getElementById('musicButton');
     const audioPlayer = document.getElementById('audioPlayer');
-    const musicFolder = 'music'; // Folder containing the audio files
-    const musicFiles = ['classical-musical-serenade-of-simplicity.mp3', 'ethereal-elegy.mp3', 'fur-elise-beethoven.mp3']; // List of song files
+    //const musicFolder = 'music'; // Folder containing the audio files
+    const musicFiles = ['music/classical-musical-serenade-of-simplicity.mp3', 
+        'music/ethereal-elegy.mp3', 
+        'music/fur-elise-beethoven.mp3']; // List of song files
     const body = document.body;
     let table;
     let sortColumnIndex = -1;
