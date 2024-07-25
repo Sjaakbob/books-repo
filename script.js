@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         playPauseButton.textContent = 'Pause';
     }
 
-    playPauseButton.addEventListener('click', function () {
+    musicButton.addEventListener('click', function () {
         if (audioPlayer.paused) {
             audioPlayer.play();
             playPauseButton.textContent = 'Pause';
