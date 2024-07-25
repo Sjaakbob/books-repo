@@ -8,12 +8,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const statsButton = document.getElementById('statsButton');
     const clearSearchButton = document.getElementById('clearSearch');
     const rainbowButton = document.getElementById('rainbowButton');
+    const musicButton = document.getElementById('musicButton');
+    const audioPlayer = document.getElementById('audioPlayer');
     const body = document.body;
     let table;
     let sortColumnIndex = -1;
     let sortAscending = true;
     let booksData = []; // Declare booksData globally
 
+
+    playPauseButton.addEventListener('click', function () {
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            playPauseButton.textContent = 'Pause';
+        } else {
+            audioPlayer.pause();
+            playPauseButton.textContent = 'Play';
+        }
+    });
+    
     // Function to toggle between light and dark stylesheets
     function toggleMode() {
         if (darkModeToggle.checked) {
