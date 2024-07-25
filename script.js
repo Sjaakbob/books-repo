@@ -11,38 +11,45 @@ document.addEventListener("DOMContentLoaded", function () {
     const musicButton = document.getElementById('musicButton');
     const audioPlayer = document.getElementById('audioPlayer');
     const musicFolder = 'music'; // Folder containing the audio files
+    const musicFiles = ['classical-musical-serenade-of-simplicity.mp3', 'ethereal-elegy.mp3', 'fur-elise-beethoven.mp3']; // List of song files
     const body = document.body;
     let table;
     let sortColumnIndex = -1;
     let sortAscending = true;
     let booksData = []; // Declare booksData globally
+    let isPlaying = false;
 
-
-     // Function to get a random song from the folder
-     function getRandomSong() {
-        const songs = ['classical-musical-serenade-of-simplicity.mp3', 'ethereal-elegy.mp3', 'fur-elise-beethoven.mp3']; // List of song files
-        const randomIndex = Math.floor(Math.random() * songs.length);
-        return songs[randomIndex];
-    }
-
-    // Set the audio source to a random song
-    function playRandomSong() {
-        const randomSong = getRandomSong();
-        audioPlayer.src = `${musicFolder}/${randomSong}`;
-        audioPlayer.play();
-        musicButton.textContent = 'Pause';
-    }
-
-    musicButton.addEventListener('click', function () {
-        if (audioPlayer.paused) {
-            audioPlayer.play();
-            musicButton.textContent = 'Pause';
-        } else {
-            audioPlayer.pause();
-            musicButton.textContent = 'Play';
+    async function toggleMusic() {
+      if (!isPlaying) {
+        try {
+          const randomIndex = Math.floor(Math.random() * musicFiles.length);
+          const selectedSong = musicFiles[randomIndex];
+          audioPlayer.src = selectedSong;
+          audioPlayer.style.display = 'block';
+  
+          await audioPlayer.play(); // Wait for play to succeed
+          toggleMusicButton.textContent = 'Pause Music';
+          isPlaying = true;
+        } catch (error) {
+          console.error('Error playing audio:', error);
         }
+      } else {
+        try {
+          audioPlayer.pause();
+          toggleMusicButton.textContent = 'Play Music';
+          isPlaying = false;
+        } catch (error) {
+          console.error('Error pausing audio:', error);
+        }
+      }
+    }
+  
+    toggleMusicButton.addEventListener('click', toggleMusic);
+  
+    audioPlayer.addEventListener('ended', function () {
+      toggleMusicButton.textContent = 'Play Music';
+      isPlaying = false;
     });
-
 
     // Function to toggle between light and dark stylesheets
     function toggleMode() {
