@@ -10,7 +10,8 @@
     71% { background-color: indigo; }
     85% { background-color: violet; }
     100% { background-color: red; }
-  }
+}
+
 header {
     position: fixed;
     top: 0;
@@ -26,10 +27,9 @@ body.rainbow {
 }
 body {
     font-family: Arial, sans-serif;
-    color: #000000;
+    color: #ffffff;
     margin: 0;
     padding: 0;
-
     transition: background-color 0.5s; /* Smooth transition when toggling */
     background-color: #230b39;
 }

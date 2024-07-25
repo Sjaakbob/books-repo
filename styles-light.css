@@ -10,7 +10,7 @@
     71% { background-color: indigo; }
     85% { background-color: violet; }
     100% { background-color: red; }
-  }
+}
 
 header {
     position: fixed;

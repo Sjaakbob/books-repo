@@ -65,8 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
         sortAscending = !sortAscending;
     }
     rainbowButton.addEventListener('click', function () {
-        print("nu is er een regenboog");
-        debug.console.log("nu is er een regeonbook");
+        //print("nu is er een regenboog");
+       // debug.console.log("nu is er een regeonbook");
         body.classList.toggle('rainbow');
     });
 
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function toggleContent() {
         if (disclaimer.style.display === "none" || disclaimer.style.display === "") {
             disclaimer.style.display = "block"; // Show the paragraph
-            debug.console.log("nu is er een tekst");
+           // debug.console.log("nu is er een tekst");
             window.scrollTo({top:0, behavior: 'smooth'});
             toggleButton.textContent = "Hide explanation";
         } else {
