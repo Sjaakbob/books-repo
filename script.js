@@ -22,35 +22,40 @@ document.addEventListener("DOMContentLoaded", function () {
     let isPlaying = false;
 
     async function toggleMusic() {
-      if (!isPlaying) {
-        try {
-          const randomIndex = Math.floor(Math.random() * musicFiles.length);
-          const selectedSong = musicFiles[randomIndex];
-          audioPlayer.src = selectedSong;
-          audioPlayer.style.display = 'block';
-  
-          await audioPlayer.play(); // Wait for play to succeed
-          toggleMusicButton.textContent = 'Pause Music';
-          isPlaying = true;
-        } catch (error) {
-          console.error('Error playing audio:', error);
+        if (!isPlaying) {
+            try {
+                playRandomSong(); // Call the function to play a random song
+                toggleMusicButton.textContent = 'Pause Music';
+                isPlaying = true;
+            } catch (error) {
+                console.error('Error playing audio:', error);
+            }
+        } else {
+            try {
+                audioPlayer.pause();
+                toggleMusicButton.textContent = 'Play Music';
+                isPlaying = false;
+            } catch (error) {
+                console.error('Error pausing audio:', error);
+            }
         }
-      } else {
-        try {
-          audioPlayer.pause();
-          toggleMusicButton.textContent = 'Play Music';
-          isPlaying = false;
-        } catch (error) {
-          console.error('Error pausing audio:', error);
-        }
-      }
     }
-  
+    
+    function playRandomSong() {
+        const randomIndex = Math.floor(Math.random() * musicFiles.length);
+        const selectedSong = musicFiles[randomIndex];
+        audioPlayer.src = selectedSong;
+        audioPlayer.style.display = 'block';
+    
+        audioPlayer.play().catch(error => {
+            console.error('Error playing audio:', error);
+        });
+    }
+    
     toggleMusicButton.addEventListener('click', toggleMusic);
-  
+    
     audioPlayer.addEventListener('ended', function () {
-      toggleMusicButton.textContent = 'Play Music';
-      isPlaying = false;
+        playRandomSong(); // Automatically play the next random song when the current one ends
     });
 
     // Function to toggle between light and dark stylesheets
