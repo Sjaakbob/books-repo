@@ -90,7 +90,7 @@ body {
     border: none; /* Remove default button border */
     background-color: transparent; /* Make background transparent */
     cursor: pointer; /* Show pointer cursor on hover */
-    width: 50px;
+    width: 40px;
     vertical-align: middle; /* Align image vertically */
 }
 #musicButton:hover{
