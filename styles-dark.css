@@ -21,13 +21,17 @@ header {
     box-shadow: 0px 2px 5px rgba(184, 187, 10, 0.1); /* Add a subtle shadow for separation */
     border-radius: 0 0 10px 10px;
 }
-
+body.rainbow {
+    animation: rainbowBackground 9s linear infinite;
+}
 body {
     font-family: Arial, sans-serif;
-    color: #ffffff;
+    color: #000000;
     margin: 0;
     padding: 0;
-    animation: rainbowBackground 60s linear infinite;
+
+    transition: background-color 0.5s; /* Smooth transition when toggling */
+    background-color: #230b39;
 }
 .container {
     width: 90%; /* Adjust max-width as needed */
@@ -70,6 +74,26 @@ body {
     vertical-align: middle; /* Align image vertically */
 }
 #randomBookButton:hover{
+    opacity: 0.8; /* Optional: Add a hover effect */
+}
+#rainbowButton{
+    border: none; /* Remove default button border */
+    background-color: transparent; /* Make background transparent */
+    cursor: pointer; /* Show pointer cursor on hover */
+    width: 50px;
+    vertical-align: middle; /* Align image vertically */
+}
+#rainbowButton:hover{
+    opacity: 0.8; /* Optional: Add a hover effect */
+}
+#musicButton{
+    border: none; /* Remove default button border */
+    background-color: transparent; /* Make background transparent */
+    cursor: pointer; /* Show pointer cursor on hover */
+    width: 50px;
+    vertical-align: middle; /* Align image vertically */
+}
+#musicButton:hover{
     opacity: 0.8; /* Optional: Add a hover effect */
 }
 #disclaimerButton {

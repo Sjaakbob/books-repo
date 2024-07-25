@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const disclaimer = document.getElementById('disclaimer');
     const statsButton = document.getElementById('statsButton');
     const clearSearchButton = document.getElementById('clearSearch');
+    const rainbowButton = document.getElementById('rainbowButton');
+    const body = document.body;
     let table;
     let sortColumnIndex = -1;
     let sortAscending = true;
@@ -62,6 +64,11 @@ document.addEventListener("DOMContentLoaded", function () {
         sortColumnIndex = columnIndex;
         sortAscending = !sortAscending;
     }
+    rainbowButton.addEventListener('click', function () {
+        print("nu is er een regenboog");
+        debug.console.log("nu is er een regeonbook");
+        body.classList.toggle('rainbow');
+    });
 
     // Event listener for sorting when a table header is clicked
     function attachSortEventListeners() {
@@ -78,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function toggleContent() {
         if (disclaimer.style.display === "none" || disclaimer.style.display === "") {
             disclaimer.style.display = "block"; // Show the paragraph
+            debug.console.log("nu is er een tekst");
             window.scrollTo({top:0, behavior: 'smooth'});
             toggleButton.textContent = "Hide explanation";
         } else {
