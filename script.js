@@ -10,12 +10,28 @@ document.addEventListener("DOMContentLoaded", function () {
     const rainbowButton = document.getElementById('rainbowButton');
     const musicButton = document.getElementById('musicButton');
     const audioPlayer = document.getElementById('audioPlayer');
+    const musicFolder = 'music'; // Folder containing the audio files
     const body = document.body;
     let table;
     let sortColumnIndex = -1;
     let sortAscending = true;
     let booksData = []; // Declare booksData globally
 
+
+     // Function to get a random song from the folder
+     function getRandomSong() {
+        const songs = ['song1.mp3', 'song2.mp3', 'song3.mp3']; // List of song files
+        const randomIndex = Math.floor(Math.random() * songs.length);
+        return songs[randomIndex];
+    }
+
+    // Set the audio source to a random song
+    function playRandomSong() {
+        const randomSong = getRandomSong();
+        audioPlayer.src = `${musicFolder}/${randomSong}`;
+        audioPlayer.play();
+        playPauseButton.textContent = 'Pause';
+    }
 
     playPauseButton.addEventListener('click', function () {
         if (audioPlayer.paused) {
@@ -26,7 +42,9 @@ document.addEventListener("DOMContentLoaded", function () {
             playPauseButton.textContent = 'Play';
         }
     });
-    
+playRandomSong();
+
+
     // Function to toggle between light and dark stylesheets
     function toggleMode() {
         if (darkModeToggle.checked) {
