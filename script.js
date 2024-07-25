@@ -42,8 +42,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     function playRandomSong() {
-        const randomIndex = Math.floor(Math.random() * musicFiles.length);
-        const selectedSong = musicFiles[randomIndex];
+        let randomIndex;
+        let selectedSong;
+        
+        // Ensure a new random song is selected
+        do {
+            randomIndex = Math.floor(Math.random() * musicFiles.length);
+            selectedSong = musicFiles[randomIndex];
+        } while (selectedSong === audioPlayer.src);
+    
         audioPlayer.src = selectedSong;
         audioPlayer.style.display = 'block';
     
@@ -57,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
     audioPlayer.addEventListener('ended', function () {
         playRandomSong(); // Automatically play the next random song when the current one ends
     });
-
     // Function to toggle between light and dark stylesheets
     function toggleMode() {
         if (darkModeToggle.checked) {
