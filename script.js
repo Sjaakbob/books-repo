@@ -21,6 +21,22 @@ document.addEventListener("DOMContentLoaded", function () {
     let booksData = []; // Declare booksData globally
     let isPlaying = false;
 
+    const placeholders = [
+        "Search a wonderful book...",
+        "Try a fantastic book...",
+        "Look up a mythical book...",
+        "Peruse my book selection...",
+        "Find a book of choice...",
+        "Type your favorite book...",
+        "Check my book collection..."
+    ];    
+     // Select a random placeholder
+     const randomPlaceholder = placeholders[Math.floor(Math.random() * placeholders.length)];
+
+     // Set the random placeholder
+     const searchInput = document.getElementById('searchInput');
+     searchInput.placeholder = randomPlaceholder;
+
     async function toggleMusic() {
         if (!isPlaying) {
             try {
