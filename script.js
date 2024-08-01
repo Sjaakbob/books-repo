@@ -6,14 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const toggleButton = document.getElementById('disclaimerButton');
     const disclaimer = document.getElementById('disclaimer');
     const statsButton = document.getElementById('statsButton');
-    //const clearSearchButton = document.getElementById('clearSearch');
     const rainbowButton = document.getElementById('rainbowButton');
     const toggleMusicButton = document.getElementById('musicButton');
     const audioPlayer = document.getElementById('audioPlayer');
-    //const musicFolder = 'music'; // Folder containing the audio files
-    const musicFiles = ['music/classical-musical-serenade-of-simplicity.mp3', 
-        'music/ethereal-elegy.mp3', 
-        'music/fur-elise-beethoven.mp3']; // List of song files
+   
     const body = document.body;
     let table;
     let sortColumnIndex = -1;
@@ -21,17 +17,31 @@ document.addEventListener("DOMContentLoaded", function () {
     let booksData = []; // Declare booksData globally
     let isPlaying = false;
 
-    const placeholders = [
+     //const musicFolder = 'music'; // Folder containing the audio files
+     const musicFiles = ['music/classical-musical-serenade-of-simplicity.mp3', 
+        'music/ethereal-elegy.mp3', 
+        'music/enchanted-dance-208328',
+        'music/enchanted-forest-frolic-pop-music-202481',
+        'music/eternal-serenade-213495',
+        'music/melody-of-strings-216149',
+        'music/peaceful-piano-background-music-218762',]; // List of song files
+
+    const placeholder = [
         "Search a wonderful book...",
         "Try a fantastic book...",
         "Look up a mythical book...",
         "Peruse my book selection...",
         "Find a book of choice...",
         "Type your favorite book...",
-        "Check my book collection..."
+        "Check my book collection...",
+        "Books, books, books...",
+        "Seek a book of destiny...",
+        "Venture into my bookcase...",
+        "Give my books a shot..."
+
     ];    
      // Select a random placeholder
-     const randomPlaceholder = placeholders[Math.floor(Math.random() * placeholders.length)];
+     const randomPlaceholder = placeholder[Math.floor(Math.random() * placeholder.length)];
 
      // Set the random placeholder
      const searchInput = document.getElementById('searchInput');
