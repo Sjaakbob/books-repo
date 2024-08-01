@@ -43,7 +43,7 @@ body {
 }
 .search-input{
     font-size: large;
-    height: 60px;
+    height: 50px;
     width: auto;
     border-radius: 10px 10px 10px 10px;
 }

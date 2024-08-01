@@ -20,11 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
      //const musicFolder = 'music'; // Folder containing the audio files
      const musicFiles = ['music/classical-musical-serenade-of-simplicity.mp3', 
         'music/ethereal-elegy.mp3', 
-        'music/enchanted-dance-208328',
-        'music/enchanted-forest-frolic-pop-music-202481',
-        'music/eternal-serenade-213495',
-        'music/melody-of-strings-216149',
-        'music/peaceful-piano-background-music-218762',]; // List of song files
+        'music/enchanted-dance-208328.mp3',
+        'music/enchanted-forest-frolic-pop-music-202481.mp3',
+        'music/eternal-serenade-213495.mp3',
+        'music/melody-of-strings-216149.mp3',
+        'music/peaceful-piano-background-music-218762.mp3',]; // List of song files
 
     const placeholder = [
         "Search a wonderful book...",
