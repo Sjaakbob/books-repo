@@ -278,7 +278,7 @@ document.addEventListener("DOMContentLoaded", function () {
         function handleButtonClick() {
             // Calculate total number of books
             const totalBooks = booksData.length;
-            const totalAuthors = booksData.filter(book=> book.author.length);
+            const totalAuthors = booksData.filter(book=> book.author).length;
             //const totalAuthors = booksData.author.length;
             
             // Calculate number of books in English
