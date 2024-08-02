@@ -278,6 +278,8 @@ document.addEventListener("DOMContentLoaded", function () {
         function handleButtonClick() {
             // Calculate total number of books
             const totalBooks = booksData.length;
+            const totalAuthors = booksData.filter(book=> book.author.length);
+            //const totalAuthors = booksData.author.length;
             
             // Calculate number of books in English
             const englishBooks = booksData.filter(book => book.Language === 'English').length;
@@ -291,7 +293,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const maybeBooks = booksData.filter(book => book.Recommended === 'Maybe').length;
             const noBooks = booksData.filter(book => book.Recommended === 'No').length;
             // Display total number of books using an alert
-            alert(`Number of books read: ${totalBooks}
+            alert(`Number of books read: ${totalBooks}\n Total authors: ${totalAuthors}
                 \nBooks in English: ${englishBooks}\nBooks in Dutch: ${dutchBooks}\nBooks in German: ${germanBooks}\nBooks in Chinese: ${chineseBooks}
                 \nAbsolutely!: ${absolutelyBooks}\nYes: ${yesBooks}\nMaybe: ${maybeBooks}\nNo: ${noBooks}`);
         }
