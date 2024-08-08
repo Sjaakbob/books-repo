@@ -295,7 +295,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const maybeBooks = booksData.filter(book => book.Recommended === 'Maybe').length;
             const noBooks = booksData.filter(book => book.Recommended === 'No').length;
             // Display total number of books using an alert
-            alert(`Total books read: ${totalBooks}\nTotal authors read: ${totalAuthors}
+            alert(`Total books read: ${totalBooks}\nTotal authors read: ${totalUniqueAuthors}
                 \nBooks in English: ${englishBooks}\nBooks in Dutch: ${dutchBooks}\nBooks in German: ${germanBooks}\nBooks in Chinese: ${chineseBooks}
                 \nAbsolutely!: ${absolutelyBooks}\nYes: ${yesBooks}\nMaybe: ${maybeBooks}\nNo: ${noBooks}`);
         }
