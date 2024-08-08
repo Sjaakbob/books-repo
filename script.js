@@ -282,14 +282,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Flatten array of authors and handle both arrays and single authors as strings
                 const allAuthors = booksData.flatMap(book => {
                     if (book.author) {
+                        // If author is an array, return it as is; if it's a string, wrap it in an array
                         return Array.isArray(book.author) ? book.author : [book.author];
                     } else {
                         return []; // Return an empty array if author is undefined or null
                     }
                 });
             
-                // Use Set to remove duplicates, then spread into an array
-                const uniqueAuthors = [...new Set(allAuthors.map(author => (author ? author.trim().toLowerCase() : '')))];
+                // Normalize and remove duplicates
+                const uniqueAuthors = [...new Set(
+                    allAuthors
+                        .filter(author => author) // Filter out any undefined/null authors
+                        .map(author => author.trim().toLowerCase()) // Normalize authors
+                )];
+                
                 const totalUniqueAuthors = uniqueAuthors.length; // Count the unique authors
             
                 // Calculate number of books in different languages
@@ -309,6 +315,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     \nBooks in English: ${englishBooks}\nBooks in Dutch: ${dutchBooks}\nBooks in German: ${germanBooks}\nBooks in Chinese: ${chineseBooks}
                     \nRecommended - Absolutely!: ${absolutelyBooks}\nYes: ${yesBooks}\nMaybe: ${maybeBooks}\nNo: ${noBooks}`);
             }
+            
             
         // Attach click event listener to the button
         statsButton.addEventListener('click', handleButtonClick);
