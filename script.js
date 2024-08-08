@@ -275,31 +275,37 @@ document.addEventListener("DOMContentLoaded", function () {
   
     
             // Function to handle button click
-        function handleButtonClick() {
-            // Calculate total number of books
-            const totalBooks = booksData.length;
-            const allAuthors = booksData.flatMap(book => book.author); // Flatten array of authors
-            const uniqueAuthors = [...new Set(allAuthors)]; // Use Set to remove duplicates, then spread into array
-            const totalUniqueAuthors = uniqueAuthors.length; // Count the unique authors
-            //const totalAuthors = booksData.author.length;
+            function handleButtonClick() {
+                // Calculate total number of books
+                const totalBooks = booksData.length;
             
-            // Calculate number of books in English
-            const englishBooks = booksData.filter(book => book.Language === 'English').length;
-
-            const dutchBooks = booksData.filter(book => book.Language === 'Dutch').length;
-            const germanBooks = booksData.filter(book => book.Language === 'German').length;
-            const chineseBooks = booksData.filter(book => book.Language === 'Chinese').length;
-
-            const absolutelyBooks = booksData.filter(book => book.Recommended === 'Absolutely!').length;
-            const yesBooks = booksData.filter(book => book.Recommended === 'Yes').length;
-            const maybeBooks = booksData.filter(book => book.Recommended === 'Maybe').length;
-            const noBooks = booksData.filter(book => book.Recommended === 'No').length;
-            // Display total number of books using an alert
-            alert(`Total books read: ${totalBooks}\nTotal authors read: ${totalUniqueAuthors}
-                \nBooks in English: ${englishBooks}\nBooks in Dutch: ${dutchBooks}\nBooks in German: ${germanBooks}\nBooks in Chinese: ${chineseBooks}
-                \nAbsolutely!: ${absolutelyBooks}\nYes: ${yesBooks}\nMaybe: ${maybeBooks}\nNo: ${noBooks}`);
-        }
-    
+                // Flatten array of authors and handle both arrays and single authors as strings
+                const allAuthors = booksData.flatMap(book => 
+                    Array.isArray(book.author) ? book.author : [book.author]
+                );
+            
+                // Use Set to remove duplicates, then spread into an array
+                const uniqueAuthors = [...new Set(allAuthors.map(author => author.trim().toLowerCase()))];
+                const totalUniqueAuthors = uniqueAuthors.length; // Count the unique authors
+            
+                // Calculate number of books in different languages
+                const englishBooks = booksData.filter(book => book.Language === 'English').length;
+                const dutchBooks = booksData.filter(book => book.Language === 'Dutch').length;
+                const germanBooks = booksData.filter(book => book.Language === 'German').length;
+                const chineseBooks = booksData.filter(book => book.Language === 'Chinese').length;
+            
+                // Calculate number of books by recommendation
+                const absolutelyBooks = booksData.filter(book => book.Recommended === 'Absolutely!').length;
+                const yesBooks = booksData.filter(book => book.Recommended === 'Yes').length;
+                const maybeBooks = booksData.filter(book => book.Recommended === 'Maybe').length;
+                const noBooks = booksData.filter(book => book.Recommended === 'No').length;
+            
+                // Display total number of books, unique authors, and other details using an alert
+                alert(`Total books read: ${totalBooks}\nTotal unique authors read: ${totalUniqueAuthors}
+                    \nBooks in English: ${englishBooks}\nBooks in Dutch: ${dutchBooks}\nBooks in German: ${germanBooks}\nBooks in Chinese: ${chineseBooks}
+                    \nRecommended - Absolutely!: ${absolutelyBooks}\nYes: ${yesBooks}\nMaybe: ${maybeBooks}\nNo: ${noBooks}`);
+            }
+            
         // Attach click event listener to the button
         statsButton.addEventListener('click', handleButtonClick);
 
