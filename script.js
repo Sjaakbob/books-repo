@@ -282,8 +282,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Flatten array of authors and handle both arrays and single authors as strings
                 const allAuthors = booksData.flatMap(book => {
                     if (book.author) {
-                        // If author is an array, return it as is; if it's a string, wrap it in an array
-                        return Array.isArray(book.author) ? book.author : [book.author];
+                        // Split author string by commas (or your delimiter) and trim each author name
+                        return book.author.split(',').map(author => author.trim());
                     } else {
                         return []; // Return an empty array if author is undefined or null
                     }
@@ -293,7 +293,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const uniqueAuthors = [...new Set(
                     allAuthors
                         .filter(author => author) // Filter out any undefined/null authors
-                        .map(author => author.trim().toLowerCase()) // Normalize authors
+                        .map(author => author.toLowerCase()) // Normalize authors by lowercasing
                 )];
                 
                 const totalUniqueAuthors = uniqueAuthors.length; // Count the unique authors
@@ -315,6 +315,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     \nBooks in English: ${englishBooks}\nBooks in Dutch: ${dutchBooks}\nBooks in German: ${germanBooks}\nBooks in Chinese: ${chineseBooks}
                     \nRecommended - Absolutely!: ${absolutelyBooks}\nYes: ${yesBooks}\nMaybe: ${maybeBooks}\nNo: ${noBooks}`);
             }
+            
             
             
         // Attach click event listener to the button
