@@ -280,12 +280,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 const totalBooks = booksData.length;
             
                 // Flatten array of authors and handle both arrays and single authors as strings
-                const allAuthors = booksData.flatMap(book => 
-                    Array.isArray(book.author) ? book.author : [book.author]
-                );
+                const allAuthors = booksData.flatMap(book => {
+                    if (book.author) {
+                        return Array.isArray(book.author) ? book.author : [book.author];
+                    } else {
+                        return []; // Return an empty array if author is undefined or null
+                    }
+                });
             
                 // Use Set to remove duplicates, then spread into an array
-                const uniqueAuthors = [...new Set(allAuthors.map(author => author.trim().toLowerCase()))];
+                const uniqueAuthors = [...new Set(allAuthors.map(author => (author ? author.trim().toLowerCase() : '')))];
                 const totalUniqueAuthors = uniqueAuthors.length; // Count the unique authors
             
                 // Calculate number of books in different languages
