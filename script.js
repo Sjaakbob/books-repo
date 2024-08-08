@@ -278,7 +278,9 @@ document.addEventListener("DOMContentLoaded", function () {
         function handleButtonClick() {
             // Calculate total number of books
             const totalBooks = booksData.length;
-            const totalAuthors = booksData.filter(book => book.author && book.author.length > 0).length;
+            const allAuthors = booksData.flatMap(book => book.author); // Flatten array of authors
+            const uniqueAuthors = [...new Set(allAuthors)]; // Use Set to remove duplicates, then spread into array
+            const totalUniqueAuthors = uniqueAuthors.length; // Count the unique authors
             //const totalAuthors = booksData.author.length;
             
             // Calculate number of books in English
@@ -293,7 +295,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const maybeBooks = booksData.filter(book => book.Recommended === 'Maybe').length;
             const noBooks = booksData.filter(book => book.Recommended === 'No').length;
             // Display total number of books using an alert
-            alert(`Total books read: ${totalBooks}\n Total authors read: ${totalAuthors}
+            alert(`Total books read: ${totalBooks}\nTotal authors read: ${totalAuthors}
                 \nBooks in English: ${englishBooks}\nBooks in Dutch: ${dutchBooks}\nBooks in German: ${germanBooks}\nBooks in Chinese: ${chineseBooks}
                 \nAbsolutely!: ${absolutelyBooks}\nYes: ${yesBooks}\nMaybe: ${maybeBooks}\nNo: ${noBooks}`);
         }
