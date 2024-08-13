@@ -183,62 +183,115 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Function to fetch and parse CSV file
-    function loadCSV() {
-        const cacheBuster = Math.random(); // Cache buster to force reload
-        fetch(`books.csv?cache=${cacheBuster}`)
-            .then(response => response.text())
-            .then(csvText => {
-                Papa.parse(csvText, {
-                    header: true,
-                    complete: function(results) {
-                        booksData = results.data; // Store parsed data in booksData array
+function loadCSV() {
+    const cacheBuster = Math.random(); // Cache buster to force reload
+    fetch(`books.csv?cache=${cacheBuster}`)
+        .then(response => response.text())
+        .then(csvText => {
+            Papa.parse(csvText, {
+                header: true,
+                complete: function(results) {
+                    booksData = results.data; // Store parsed data in booksData array
+                    if (booksData && booksData.length > 0) {
                         displayTable(booksData);
+                    } else {
+                        console.error('Parsed data is empty.');
                     }
-                });
-            })
-            .catch(error => console.error('Error loading the CSV file:', error));
-    }
-
-    // Function to display the parsed CSV data in a table
-    function displayTable(data) {
-        table = document.createElement('table');
-        table.border = '1';
-
-        // Create table header
-        const thead = document.createElement('thead');
-        const headerRow = document.createElement('tr');
-        ['Book', 'Author', 'Recommended', 'Language', 'Comments'].forEach(headerText => {
-            const th = document.createElement('th');
-            th.textContent = headerText;
-            th.classList.add('sortable'); // Add sortable class to make headers clickable
-            headerRow.appendChild(th);
-        });
-        thead.appendChild(headerRow);
-        table.appendChild(thead);
-
-        // Create table body
-        const tbody = document.createElement('tbody');
-        data.forEach(row => {
-            const tr = document.createElement('tr');
-            Object.values(row).forEach(cell => {
-                const td = document.createElement('td');
-                td.textContent = cell;
-                tr.appendChild(td);
+                },
+                error: function(error) {
+                    console.error('Error parsing CSV:', error);
+                }
             });
-            tbody.appendChild(tr);
-        });
-        table.appendChild(tbody);
+        })
+        .catch(error => console.error('Error loading the CSV file:', error));
+}
 
-        // Append table to container
-        tableContainer.innerHTML = ''; // Clear previous table if any
-        tableContainer.appendChild(table);
-
-        // Attach sorting event listeners after table is populated
-        attachSortEventListeners();
-
-        // Initialize search functionality
-        initializeSearch();
+// Function to display the parsed CSV data in a table
+function displayTable(data) {
+    const tableContainer = document.getElementById('tableContainer');
+    if (!tableContainer) {
+        console.error('Table container element not found.');
+        return;
     }
+
+    const table = document.createElement('table');
+    table.border = '1';
+
+    // Create table header
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+    ['Book', 'Author', 'Recommended', 'Language', 'Comments'].forEach(headerText => {
+        const th = document.createElement('th');
+        th.textContent = headerText;
+        th.classList.add('sortable'); // Add sortable class to make headers clickable
+        headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    // Create table body
+    const tbody = document.createElement('tbody');
+    data.forEach(row => {
+        const tr = document.createElement('tr');
+        Object.values(row).forEach(cell => {
+            const td = document.createElement('td');
+            td.textContent = cell;
+            tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+
+    // Append table to container
+    tableContainer.innerHTML = ''; // Clear previous table if any
+    tableContainer.appendChild(table);
+
+    // Attach sorting event listeners after table is populated
+    attachSortEventListeners();
+
+    // Initialize search functionality
+    initializeSearch();
+}
+
+// Function to choose a random book
+function chooseRandomBook() {
+    if (!booksData || booksData.length === 0) {
+        console.error('No books loaded or booksData is empty.');
+        return;
+    }
+
+    const randomIndex = Math.floor(Math.random() * booksData.length);
+    const randomBook = booksData[randomIndex];
+
+    if (!randomBook || typeof randomBook !== 'object') {
+        console.error('Selected randomBook is invalid.');
+        return;
+    }
+
+    const title = randomBook.Title || randomBook.title || '';
+    if (!title) {
+        console.error('Title is undefined or empty for the selected book.');
+        return;
+    }
+
+    const searchInput = document.getElementById('searchInput');
+    if (!searchInput) {
+        console.error('Search input element not found.');
+        return;
+    }
+
+    searchInput.value = title;
+    searchInput.dispatchEvent(new Event('input'));
+
+    const disclaimer = document.getElementById('disclaimer');
+    if (disclaimer && (disclaimer.style.display === "block" || disclaimer.style.display === "")) {
+        disclaimer.style.display = "none";
+        const toggleButton = document.getElementById('toggleButton');
+        if (toggleButton) {
+            toggleButton.textContent = "Explanation";
+        }
+    }
+}
 
     // Function to initialize search functionality
     function initializeSearch() {
