@@ -323,36 +323,103 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to choose a random book
     function chooseRandomBook() {
-        if (!booksData || booksData.length === 0) {
+        // Check if booksData is loaded and not empty
+        if (!booksData || !Array.isArray(booksData) || booksData.length === 0) {
             console.error('No books loaded or booksData is empty.');
             return;
         }
-        
+    
+        // Safely select a random index
         const randomIndex = Math.floor(Math.random() * booksData.length);
         const randomBook = booksData[randomIndex];
-        
+    
+        // Ensure randomBook is valid
+        if (!randomBook || typeof randomBook !== 'object') {
+            console.error('Selected randomBook is invalid.');
+            return;
+        }
+    
         // Example: Adjust according to your actual CSV structure
-        const title = randomBook.Title; // Check the actual key name in your CSV data
+        const title = randomBook.Title || randomBook.title || ''; // Check for various possible key names
+    
+        // Check if title is valid
+        if (!title) {
+            console.error('Title is undefined or empty for the selected book.');
+            return;
+        }
     
         // Update the search input with the title of the random book
         const searchInput = document.getElementById('searchInput');
-        searchInput.value = title;
-    
-        // Trigger input event to initiate the search based on the new value
-        searchInput.dispatchEvent(new Event('input'));
-         // Close the disclaimer if it's open
-         if (disclaimer.style.display === "block" || disclaimer.style.display === "") {
-            disclaimer.style.display = "none";
-            toggleButton.textContent = "Explanation";
+        if (!searchInput) {
+            console.error('Search input element not found.');
+            return;
         }
     
+        // Set the input value and trigger the input event
+        searchInput.value = title;
+        searchInput.dispatchEvent(new Event('input'));
+    
+        // Safely close the disclaimer if it's open
+        const disclaimer = document.getElementById('disclaimer');
+        if (disclaimer && (disclaimer.style.display === "block" || disclaimer.style.display === "")) {
+            disclaimer.style.display = "none";
+            
+            // Check for the toggle button before changing text
+            const toggleButton = document.getElementById('toggleButton');
+            if (toggleButton) {
+                toggleButton.textContent = "Explanation";
+            } else {
+                console.warn('Toggle button not found, cannot change its text.');
+            }
+        }
     }
     
     // Event listener for the random book button
     const randomBookButton = document.getElementById('randomBookButton');
-    randomBookButton.addEventListener('click', chooseRandomBook);
+    if (randomBookButton) {
+        randomBookButton.addEventListener('click', chooseRandomBook);
+    } else {
+        console.error('Random book button not found.');
+    }
     
-
+    // Function to load the CSV file
+    function loadCSV() {
+        // Ensure PapaParse is included before using it
+        if (typeof Papa !== 'undefined' && Papa.parse) {
+            // Implement the logic to load and parse your CSV file using Papa Parse
+            // Example:
+            Papa.parse('path/to/your/file.csv', {
+                download: true,
+                header: true,
+                complete: function(results) {
+                    booksData = results.data;
+                    console.log('CSV loaded successfully.');
+                },
+                error: function(error) {
+                    console.error('Error loading CSV:', error);
+                }
+            });
+        } else {
+            console.error('PapaParse library is not included.');
+        }
+    }
+    
     // Load the CSV file and Papa Parse library when the page loads
-    includePapaParse(loadCSV);
-});
+    document.addEventListener('DOMContentLoaded', function() {
+        includePapaParse(loadCSV);
+    });
+    
+    // Function to include PapaParse library dynamically
+    function includePapaParse(callback) {
+        if (typeof Papa === 'undefined') {
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js';
+            script.onload = callback;
+            script.onerror = function() {
+                console.error('Failed to load PapaParse library.');
+            };
+            document.head.appendChild(script);
+        } else {
+            callback(); // PapaParse is already loaded
+        }
+    }
