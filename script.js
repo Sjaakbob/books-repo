@@ -117,8 +117,6 @@ function displayTable(data) {
     // Initialize search functionality
     initializeSearch();
 }
-
-
     async function toggleMusic() {
         if (!isPlaying) {
             try {
