@@ -323,48 +323,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to choose a random book
     function chooseRandomBook() {
-        // Check if booksData is loaded and not empty
         if (!booksData || booksData.length === 0) {
             console.error('No books loaded or booksData is empty.');
             return;
         }
         
-        // Select a random book
         const randomIndex = Math.floor(Math.random() * booksData.length);
         const randomBook = booksData[randomIndex];
-    
-        // Log the randomBook object to verify its structure
-        console.log('Random Book:', randomBook);
         
         // Example: Adjust according to your actual CSV structure
-        const title = randomBook.Title || randomBook.title; // Use the correct property name
+        const title = randomBook.Title; // Check the actual key name in your CSV data
     
-        // Check if title is valid
-        if (!title) {
-            console.error('Title is undefined for the selected book.');
-            return;
-        }
-        
         // Update the search input with the title of the random book
         const searchInput = document.getElementById('searchInput');
-        if (searchInput) {
-            searchInput.value = title;
-            // Trigger input event to initiate the search based on the new value
-            searchInput.dispatchEvent(new Event('input'));
-        } else {
-            console.error('Search input element not found.');
-        }
-        
-        // Close the disclaimer if it's open
-        const disclaimer = document.getElementById('disclaimer');
-        const toggleButton = document.getElementById('toggleButton'); // Assuming this exists for text change
-        
-        if (disclaimer) {
-            if (disclaimer.style.display === "block" || disclaimer.style.display === "") {
-                disclaimer.style.display = "none";
-                if (toggleButton) {
-                    toggleButton.textContent = "
+        searchInput.value = title;
     
+        // Trigger input event to initiate the search based on the new value
+        searchInput.dispatchEvent(new Event('input'));
+         // Close the disclaimer if it's open
+         if (disclaimer.style.display === "block" || disclaimer.style.display === "") {
+            disclaimer.style.display = "none";
+            toggleButton.textContent = "Explanation";
+        }
+    
+    }
     
     // Event listener for the random book button
     const randomBookButton = document.getElementById('randomBookButton');
