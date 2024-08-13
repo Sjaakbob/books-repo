@@ -423,3 +423,4 @@ document.addEventListener("DOMContentLoaded", function () {
             callback(); // PapaParse is already loaded
         }
     }
+});
