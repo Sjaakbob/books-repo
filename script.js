@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const toggleMusicButton = document.getElementById('musicButton');
     const audioPlayer = document.getElementById('audioPlayer');
    
-    const body = document.body;
+    const body = document.body;git 
     let table;
     let sortColumnIndex = -1;
     let sortAscending = true;
@@ -48,28 +48,36 @@ document.addEventListener("DOMContentLoaded", function () {
      searchInput.placeholder = randomPlaceholder;
 
         // Function to fetch and parse CSV file
-function loadCSV() {
-    const cacheBuster = Math.random(); // Cache buster to force reload
-    fetch(`testbooks.csv?cache=${cacheBuster}`)
-        .then(response => response.text())
-        .then(csvText => {
-            Papa.parse(csvText, {
-                header: true,
-                complete: function(results) {
-                    booksData = results.data; // Store parsed data in booksData array
-                    if (booksData && booksData.length > 0) {
-                        displayTable(booksData);
-                    } else {
-                        console.error('Parsed data is empty.');
+        function loadCSV() {
+            const cacheBuster = Math.random(); // Cache buster to force reload
+            fetch(`testbooks.csv?cache=${cacheBuster}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
                     }
-                },
-                error: function(error) {
-                    console.error('Error parsing CSV:', error);
-                }
-            });
-        })
-        .catch(error => console.error('Error loading the CSV file:', error));
-}
+                    return response.text();
+                })
+                .then(csvText => {
+                    Papa.parse(csvText, {
+                        header: true,
+                        complete: function(results) {
+                            booksData = results.data; // Store parsed data in booksData array
+                            if (booksData && booksData.length > 0) {
+                                displayTable(booksData);
+                            } else {
+                                console.error('Parsed data is empty or improperly formatted.');
+                            }
+                        },
+                        error: function(error) {
+                            console.error('Error parsing CSV:', error);
+                        }
+                    });
+                })
+                .catch(error => console.error('Error loading the CSV file:', error));
+        }
+        
+        // Ensure the `displayTable` function is correctly defined and does something meaningful with `booksData`.
+        
 
 // Function to display the parsed CSV data in a table
 function displayTable(data) {
