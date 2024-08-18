@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Function to fetch and parse CSV file
 function loadCSV() {
     const cacheBuster = Math.random(); // Cache buster to force reload
-    fetch(`books.csv?cache=${cacheBuster}`)
+    fetch(`testbooks.csv?cache=${cacheBuster}`)
         .then(response => response.text())
         .then(csvText => {
             Papa.parse(csvText, {
