@@ -18,13 +18,26 @@ document.addEventListener("DOMContentLoaded", function () {
     let isPlaying = false;
 
     const musicFiles = [
-        'music/classical-musical-serenade-of-simplicity.mp3', 
-        'music/ethereal-elegy.mp3', 
+        'music/beneath-the-infinite-sky-225669.mp3',
+        'music/classical-musical-serenade-of-simplicity.mp3',
+        'music/dialogues-with-the-past-225668.mp3', 
+        'music/dim-meditation-396-hz-227138.mp3',
+        'music/dreamtime-222922.mp3',
         'music/enchanted-dance-208328.mp3',
         'music/enchanted-forest-frolic-pop-music-202481.mp3',
+        'music/epic-odyssey-western-classical-music-201986.mp3',
         'music/eternal-serenade-213495.mp3',
+        'music/ethereal-elegy.mp3',
+        'music/find-your-zen-2-222923.mp3',
+        'music/inner-peace-222955.mp3',
+        'music/light-contours-ai-213696.mp3',
+        'music/melancholy_score_original-219042.mp3',
         'music/melody-of-strings-216149.mp3',
-        'music/peaceful-piano-background-music-218762.mp3'
+        'music/peaceful-piano-background-music-218762.mp3',
+        'music/relaxing-music-serenity-213078.mp3',
+        'music/sprint-of-light-ai-213695.mp3',
+        'music/the-final-page-softly-turned-225663.mp3',
+        'music/whisper-in-the-rain-225656.mp3',
     ];
 
     const placeholder = [
@@ -47,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to fetch and parse CSV file
     function loadCSV() {
         const cacheBuster = Math.random();
-        fetch(`testbooks.csv?cache=${cacheBuster}`)
+        fetch(`books.csv?cache=${cacheBuster}`)
             .then(response => response.ok ? response.text() : Promise.reject(response.status))
             .then(csvText => {
                 Papa.parse(csvText, {
