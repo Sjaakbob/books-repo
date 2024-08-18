@@ -251,22 +251,41 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error('No books loaded or booksData is empty.');
             return;
         }
-
+    
         const randomIndex = Math.floor(Math.random() * booksData.length);
         const randomBook = booksData[randomIndex];
-        const title = randomBook.Title || randomBook.title || '';
-
+    
+        if (!randomBook || typeof randomBook !== 'object') {
+            console.error('Selected randomBook is invalid.');
+            return;
+        }
+    
+        console.log('Selected random book:', randomBook);
+    
+        // Adjust according to your CSV structure
+        const title = randomBook.Title || randomBook.title || randomBook.BookTitle || ''; // Check for various possible key names
+    
         if (!title) {
             console.error('Title is undefined or empty for the selected book.');
             return;
         }
-
+    
+        const searchInput = document.getElementById('searchInput');
+        if (!searchInput) {
+            console.error('Search input element not found.');
+            return;
+        }
+    
         searchInput.value = title;
         searchInput.dispatchEvent(new Event('input'));
-
-        if (disclaimer.style.display === "block" || disclaimer.style.display === "") {
+    
+        const disclaimer = document.getElementById('disclaimer');
+        if (disclaimer && (disclaimer.style.display === "block" || disclaimer.style.display === "")) {
             disclaimer.style.display = "none";
-            toggleButton.textContent = "Explanation";
+            const toggleButton = document.getElementById('toggleButton');
+            if (toggleButton) {
+                toggleButton.textContent = "Explanation";
+            }
         }
     }
 
