@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const toggleMusicButton = document.getElementById('musicButton');
     const audioPlayer = document.getElementById('audioPlayer');
    
-    const body = document.body;git 
+    const body = document.body;
     let table;
     let sortColumnIndex = -1;
     let sortAscending = true;
