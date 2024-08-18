@@ -11,11 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const audioPlayer = document.getElementById('audioPlayer');
     const searchInput = document.getElementById('searchInput');
     const body = document.body;
+    
     let table;
     let sortColumnIndex = -1;
     let sortAscending = true;
     let booksData = [];
     let isPlaying = false;
+    let previousSong = null;
 
     const musicFiles = [
         'music/beneath-the-infinite-sky-225669.mp3',
@@ -156,8 +158,9 @@ document.addEventListener("DOMContentLoaded", function () {
         do {
             randomIndex = Math.floor(Math.random() * musicFiles.length);
             selectedSong = musicFiles[randomIndex];
-        } while (selectedSong === audioPlayer.src);
+        } while (selectedSong === audioPlayer.src || selectedSong === previousSong); // Ensure the new song is different from the current and previous one
     
+        previousSong = audioPlayer.src; // Update previous song to current one
         audioPlayer.src = selectedSong;
         audioPlayer.style.display = 'block';
     
@@ -165,6 +168,11 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error('Error playing audio:', error);
         });
     }
+    
+    // Event listener for when the current song ends
+    audioPlayer.addEventListener('ended', function() {
+        playRandomSong(); // Play the next random song when the current one ends
+    });
 
     // Function to toggle between light and dark stylesheets
     function toggleMode() {
