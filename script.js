@@ -129,27 +129,6 @@ document.addEventListener("DOMContentLoaded", function () {
         initializeSearch();
     }
 
-    // Function to toggle music playback
-    async function toggleMusic() {
-        if (!isPlaying) {
-            try {
-                playRandomSong();
-                toggleMusicButton.textContent = 'Pause Music';
-                isPlaying = true;
-            } catch (error) {
-                console.error('Error playing audio:', error);
-            }
-        } else {
-            try {
-                audioPlayer.pause();
-                toggleMusicButton.textContent = 'Play Music';
-                isPlaying = false;
-            } catch (error) {
-                console.error('Error pausing audio:', error);
-            }
-        }
-    }
-
     // Function to play a random song
     function playRandomSong() {
         let randomIndex;
@@ -162,7 +141,8 @@ document.addEventListener("DOMContentLoaded", function () {
     
         previousSong = audioPlayer.src; // Update previous song to current one
         audioPlayer.src = selectedSong;
-        audioPlayer.style.display = 'block';
+        
+
     
         audioPlayer.play().catch(error => {
             console.error('Error playing audio:', error);
@@ -340,7 +320,7 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleButton.addEventListener("click", toggleContent);
     statsButton.addEventListener("click", handleButtonClick);
     rainbowButton.addEventListener("click", toggleRainbowMode);
-    toggleMusicButton.addEventListener("click", toggleMusic);
+    toggleMusicButton.addEventListener("click", playRandomSong);
     document.getElementById('randomBookButton').addEventListener("click", chooseRandomBook);
 
     // Load CSV data

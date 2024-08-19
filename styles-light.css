@@ -104,6 +104,10 @@ body {
     height: auto;
     vertical-align: middle; /* Align image vertically */
 }
+#audioPlayer{
+    position: fixed;
+    padding-left: 20px;
+}
 
 #disclaimerButton:hover {
     opacity: 0.8; /* Optional: Add a hover effect */
@@ -127,6 +131,7 @@ body {
 }
 
 th, td {
+    position: fixed;
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
@@ -143,6 +148,7 @@ table {
 }
 
 th {
+    position: fixed;
     background-color: #077276;
     cursor: pointer; /* Add cursor pointer for sortable columns */
 }

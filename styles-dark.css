@@ -105,6 +105,10 @@ body {
     height: auto;
     vertical-align: middle; /* Align image vertically */
 }
+#audioPlayer{
+    position: fixed;
+    padding-left: 20px;
+}
 
 #disclaimerButton:hover {
     opacity: 0.8; /* Optional: Add a hover effect */
@@ -126,25 +130,33 @@ body {
 .custom-checkbox:hover{
     opacity: 0.8; /* Optional: Add a hover effect */
 }
+
+
+h1 {
+    text-align: center;
+}
+
+/* Apply styling to the table and its header */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px; /* Space below the table */
+}
+
 th, td {
     border: 1px solid #000000;
     padding: 10px;
     text-align: left;
 }
 
-h1 {
-    text-align: center;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #000000;
-}
-
 th {
     background-color: #077276;
-    cursor: pointer; /* Add cursor pointer for sortable columns */
+    border: 1px solid #000000;
+    padding: 10px;
+    cursor: pointer;
+    position: sticky; /* Use sticky position for the header */
+    top: 0;
+    z-index: 10; /* Ensure the header stays above the table rows */
 }
 
 .mode-toggle {
