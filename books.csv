@@ -1,5 +1,5 @@
 Title,Author,Recommended,Language,Comments
-"Maiwa's Revenge, The War of the Little Hand",H. Rider Haggard,Absolutely!,English,Short fun story
+Maiwa's Revenge / The War of the Little Hand,H. Rider Haggard,Absolutely!,English,Short fun story
 Meno,Plato,Yes,English,
 Apology of Socrates,Plato,Yes,English,
 Pheado,Plato,Yes,English,
@@ -26,11 +26,11 @@ Homage to Catalonia,George Orwell,Yes,English,
 Coming Up for Air,George Orwell,Maybe,English,Orwell's weakest book in my opinion. It has an interesting theme of nostalgia but for me it never really clicked.
 Animal Farm,George Orwell,Absolutely!,English Chinese,"Funny, important and two stories in one. Certainly one of the best books ever written"
 Taiko: An Epic Novel of War and Glory in Feudal Japan.,Eiji Yoshikawa,Absolutely!,Dutch,Humongus book full of interesting information about historical Japanese society.
-Musashi,Eiji Yoshikawa,Yes,Dutch,
-Lord of the Rings: The Fellowship of the Ring,J.R.R. Tolkien,Yes,Dutch,
-Lord of the Rings: The Two Towers,J.R.R. Tolkien,Yes,Dutch,
-Lord of the Rings: The Return of the King,J.R.R. Tolkien,Yes,Dutch,
-The Hobbit,J.R.R. Tolkien,Yes,Dutch,
+Musashi,Eiji Yoshikawa,Absolutely!,Dutch,
+Lord of the Rings: The Fellowship of the Ring,J.R.R. Tolkien,Absolutely!,Dutch,
+Lord of the Rings: The Two Towers,J.R.R. Tolkien,Absolutely!,Dutch,
+Lord of the Rings: The Return of the King,J.R.R. Tolkien,Absolutely!,Dutch,
+The Hobbit,J.R.R. Tolkien,Absolutely!,Dutch,
 Harry Potter and the Philosopher's Stone,J.K. Rowling,Yes,Dutch Chinese German,
 Harry Potter and the Chamber of Secrets,J.K. Rowling,Yes,Dutch Chinese,
 Harry Potter and the Prisoner of Azkaban,J.K. Rowling,Yes,Dutch Chinese,
@@ -38,9 +38,9 @@ Harry Potter and the Goblet of Fire,J.K. Rowling,Yes,Dutch,
 Harry Potter and the Order of the Phoenix,J.K. Rowling,Yes,Dutch,
 Harry Potter and the Half-Blood Prince,J.K. Rowling,Yes,Dutch,
 Harry Potter and the Deathly Hallows,J.K. Rowling,Yes,Dutch,
-Oorlogswinter,Jan Terlou,Yes,Dutch,
+Oorlogswinter,Jan Terlou,Absolutely!,Dutch,
 Samurai,Shusaku Endo,No,Dutch,
-Shogun,James Clavell,Yes,English,
+Shogun,James Clavell,Absolutely!,English,
 The Rape of Nanking: The Forgotten Holocaust of World War II ,Iris Chang,Absolutely!,English,Well documented account of the horror of the Japanse invasion into China
 12 Rules for life,Jordan B. Peterson,No,English,
 Lying,Sam Harris,Absolutely!,English,
@@ -193,7 +193,7 @@ The Boy at Mugsby,Charless Dickens,No,English,
 Passenger From Crewe,Frederick Cowles,Yes,English,
 The Stolen Bacillus,H.G. Wells,No,English,
 The Poor Traveller,Charless Dickens,Yes,English,
-Meditations,Marcus Aurelius,Absolutely!,English,"Still relevant advice, time in this ilfe is short and we die sooner than we might imagine, therefore try and do what you want to do in this life."
+Meditations,Marcus Aurelius,Absolutely!,English,"Still relevant advice, time in this life is short and we die sooner than we might imagine, therefore try and do what you want to do in this life."
 Of Consolation to Helvia,Seneca,Yes,English,
 The Death of Ivan Ilyich,Leo Tolstoy,Yes,English,
 The Candle,Leo Tolstoy,Maybe,English,
@@ -207,7 +207,7 @@ The Student,Anton Chekhov,No,English,
 A Problem,Anton Chekhov,Maybe,English,
 The School Mistress,Anton Chekhov,No,English,
 First Love,Vladimir Nabokov,No,English,
-The Bet,Anton Chekhov,Mabye,English,
+The Bet,Anton Chekhov,Yes,English,Interesting hypothetical
 Fat and Thin,Anton Chekhov,No,English,
 The Apple,H.G. Wells,Maybe,English,
 Kicking Away the Ladder: Development Strategy in Historical Perspective,Ha-Joon Chang,Yes,English,
@@ -215,7 +215,7 @@ Waking Up_ A Guide to Spirituality Without Religion,Sam Harris,Absolutely!,Engli
 Christian Bible: 1 Thessalonians,God,No,English,
 THE ORIGIN AND DEVELOPMENT OF PSYCHOANALYSIS,Sigmund Freud,Yes,English,
 ON THE DUTY OF CIVIL DISOBEDIENCE,Henry David Thoreau,Yes,English,
-The Album,Anton Chekhov,no,English,
+The Album,Anton Chekhov,No,English,
 Poetics,Aristotle,No,English,
 Beowulf (short version),Unknown,Yes,English,
 The Analects / Sayings of Confucius,Confucius,No,English,
@@ -318,7 +318,7 @@ A Sherlock Holmes Novel: The Sign of the Four,Arthur Conan Doyle,No,English,Hard
 Die Maus mit dem mutigen Herz,Susanne Bohne,Yes,German,Cute little story
 Mupf das Müllmonster,Susanne Bohne,Yes,German,Cute little story
 The Invisible Japanese Gentlemen,Graham Greene,Absolutely!,English,Made me smile! Fun little story about observation
-The Inn of the Two Witches,Joseph Conrad, No,English,Boring horror book
+The Inn of the Two Witches,Joseph Conrad,No,English,Boring horror book
 The Verdict,Edith Wharton,No,English,Not my thing
 The Devoted Friend,Oscar Wilde,Yes,English,Fun meta little fairy tale
 A Tale of Two Cities,Charles Dickens,Yes,English,"At times rather funny but I don't know if that was intentional or just the way books were written back then. It switches between a serious novel to random monthy python esque sketches.  The language used is tricky though and it feels like I sometimes loose a bit of the plot because of the complex ways of describing things.  Also much repetition, mont senieur, mont senieur! Interesting opening line:""it was the best of times, it was the worst of times, "" Describtion of the madame guilotine was also funny. Nevertheless the book is long and hard for me to follow. Could have been shortened to about 25% of it's size and it would have been a good book. Now I consider it too slow and a bit boring. It does get much much better towards the end."
@@ -333,7 +333,7 @@ Beyond the Bayou,Kate Chopin,No,English,Not interested
 A Good Man Is Hard to Find,Flannery O'Connor,Yes,English,The plottwist redeems the story
 A Pair of Silk Stockings,Kate Chopin,Maybe,English,"Meh, had potential but ultimately, meh."
 The Distance to the Moon,Italo Calvino,Maybe,English,"Bonus points for being weird, still fairly boring"
-Things,D H Lawrence,Yes,English,"Unique story, talks about never ending human desire for new experiences."
+Things,D H Lawrence,Yes,English,"Unique story, talks about never ending human desire for new experiences and the things we cling to. It had many interesting themes in one"
 Confido,Kurt Vonnegut,Maybe,English,Decent but a bit too straightforward
 Story of Your Life / arrival ,Ted Chiang,Yes,English,"Cool and unique writing style and story. That said, it was pretty obvious the  written Alien language was quite similar to Chinese Characters but they ommited this referenced for some  unknown reason. It broke the uncanny valley. Somewhere in between a Yes and Absolutely for me, at some point in the future I wanna reasses. "
 Just Before the War With the Eskimos,J D Salinger,No,English,Not good. Not really sure what the point was
@@ -352,3 +352,9 @@ Why Don't You Dance?,Raymond Carver,No,English,I don't get it.
 THE PERENNIAL PHILOSOPHY,Aldous Huxley,No,English,"""The form of the moon can only be known through ones own eyes"" So no one else can tell you about it's shape? It cannot be measured? Wise sounding bullshit that can easily be demonstrated to be false. I found this particular sentence to be emblamatic of the whole thesis. The sentences are well written but the substance seems to be mostly nonesense.  "
 Mr Know All,Somerset Maugham,Yes,English,Fun twist and well told.
 The Promise,Somerset Maugham,No,English,He has a good writing style but this story was fairly pointless
+Battleground,Lester del Rey,Mabye,English,"Pretty predictable sci fi trope. Still, fairly alright"
+The Facts of Life,Somerset Maugham,Yes,English,Took some different turns than I expected. Read a bit like an old fairy tale. Nice  story overall
+In the Graveyard,Anton Chekhov,No,English,One of Anton's many stories I don't really understand. I feel like much is either lost in translation or I am missing something else entirely
+A Perfect Day for Bananafish,J.D. Salinger,Maybe,English,I like the darker side but it felt... lacking somewhat.
+Too Much Tolerance,Evelyn Waugh,Yes,English,Much truth to this little short story. I think we all know all least one person like this in real life
+Out of Depth,Evelyn Waugh,Maybe,English,"Mixed feelings about this one. One of the commenters said it best: ""This is less a short story and more the beginning of a dystopian novel; the middle is more notes to be fleshed out later. Parts of it have no sense because there is no reference to anchor any if it. Very strange and going nowhere."""

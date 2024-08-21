@@ -141,8 +141,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
         previousSong = audioPlayer.src; // Update previous song to current one
         audioPlayer.src = selectedSong;
-        
-
     
         audioPlayer.play().catch(error => {
             console.error('Error playing audio:', error);
@@ -278,31 +276,83 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Function to handle stats button click
-    function handleButtonClick() {
-        const totalBooks = booksData.length;
-        const allAuthors = booksData.flatMap(book => 
-            book.author ? book.author.split(',').map(a => a.trim()) : []
-        );
-        const uniqueAuthors = Array.from(new Set(allAuthors));
-        const recommendedBooks = booksData.filter(book => 
-            book.recommended && book.recommended.toLowerCase() === 'yes'
-        );
-        const languageCounts = booksData.reduce((acc, book) => {
-            const lang = book.language || 'Unknown';
-            acc[lang] = (acc[lang] || 0) + 1;
-            return acc;
-        }, {});
+    // Function to handle stats button click
+function statsButtonClick() {
+    const totalBooks = booksData.length;
 
-        const statsText = `
-            Total Books: ${totalBooks}
-            Total Unique Authors: ${uniqueAuthors.length}
-            Total Recommended Books: ${recommendedBooks.length}
-            Language Distribution: ${Object.entries(languageCounts)
-                .map(([lang, count]) => `${lang}: ${count}`).join(', ')}
-        `;
+    // Debugging: Log booksData to check the structure
+    console.log("Books Data:", booksData);
 
-        alert(statsText);
-    }
+    const allAuthors = booksData.flatMap(book => {
+        if (book.Author && typeof book.Author === 'string') {
+            return book.Author.split(',').map(a => a.trim());
+        } else {
+            console.log("Missing or invalid author field in:", book); // Debugging: Check for missing or invalid author
+            return [];
+        }
+    });
+
+    const uniqueAuthors = Array.from(new Set(allAuthors));
+
+    const absolutelyRecommended = booksData.filter(book => {
+        const isRecommended = book.Recommended && book.Recommended.trim().toLowerCase() === 'absolutely!';
+        if (!book.Recommended) {
+            console.log("Missing recommended field in:", book); // Debugging: Check for missing recommended
+        }
+        return isRecommended;
+    });
+    const yesRecommended = booksData.filter(book => {
+        const isRecommended = book.Recommended && book.Recommended.trim().toLowerCase() === 'yes';
+        if (!book.Recommended) {
+            console.log("Missing recommended field in:", book); // Debugging: Check for missing recommended
+        }
+        return isRecommended;
+    });
+    const maybeRecommended = booksData.filter(book => {
+        const isRecommended = book.Recommended && book.Recommended.trim().toLowerCase() === 'maybe';
+        if (!book.Recommended) {
+            console.log("Missing recommended field in:", book); // Debugging: Check for missing recommended
+        }
+        return isRecommended;
+    });
+    const noRecommended = booksData.filter(book => {
+        const isRecommended = book.Recommended && book.Recommended.trim().toLowerCase() === 'no';
+        if (!book.Recommended) {
+            console.log("Missing recommended field in:", book); // Debugging: Check for missing recommended
+        }
+        return isRecommended;
+    });
+
+    const languageCounts = booksData.reduce((acc, book) => {
+        const lang = book.language ? book.language.trim() : 'Unknown';
+        acc[lang] = (acc[lang] || 0) + 1;
+        return acc;
+    }, {});
+
+    // Debugging: Log the results
+    console.log("Total Books:", totalBooks);
+    console.log("Unique Authors:", uniqueAuthors.length);
+    console.log("Recommended Books:", absolutelyRecommended.length);
+    console.log("Language Counts:", languageCounts);
+
+    const statsText = `
+        Total Books:  ${totalBooks}
+        Total Authors:  ${uniqueAuthors.length}
+        Absolutely!:  ${absolutelyRecommended.length}
+        Yes: ${yesRecommended.length}
+        Maybe: ${maybeRecommended.length}
+        No: ${noRecommended.length}
+        Language Distribution: ${Object.entries(languageCounts)
+            .map(([lang, count]) => `${lang}: ${count}`).join(', ')}
+    `;
+
+    alert(statsText);
+}
+
+
+
+
+
 
     // Function to toggle rainbow mode
     function toggleRainbowMode() {
@@ -318,7 +368,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Event listeners
     darkModeToggle.addEventListener("change", toggleMode);
     toggleButton.addEventListener("click", toggleContent);
-    statsButton.addEventListener("click", handleButtonClick);
+    statsButton.addEventListener("click", statsButtonClick);
     rainbowButton.addEventListener("click", toggleRainbowMode);
     toggleMusicButton.addEventListener("click", playRandomSong);
     document.getElementById('randomBookButton').addEventListener("click", chooseRandomBook);

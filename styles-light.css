@@ -131,7 +131,6 @@ body {
 }
 
 th, td {
-    position: fixed;
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
@@ -148,9 +147,13 @@ table {
 }
 
 th {
-    position: fixed;
     background-color: #077276;
-    cursor: pointer; /* Add cursor pointer for sortable columns */
+    border: 1px solid #fffafa;
+    padding: 10px;
+    cursor: pointer;
+    position: sticky; /* Use sticky position for the header */
+    top: 0;
+    z-index: 10; /* Ensure the header stays above the table rows */
 }
 
 .mode-toggle {
