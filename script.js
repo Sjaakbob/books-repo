@@ -338,10 +338,12 @@ function statsButtonClick() {
     const statsText = `
         Total Books:  ${totalBooks}
         Total Authors:  ${uniqueAuthors.length}
+
         Absolutely!:  ${absolutelyRecommended.length}
         Yes: ${yesRecommended.length}
         Maybe: ${maybeRecommended.length}
         No: ${noRecommended.length}
+        
         Language Distribution: ${Object.entries(languageCounts)
             .map(([lang, count]) => `${lang}: ${count}`).join(', ')}
     `;
